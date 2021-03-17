@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://kit.fontawesome.com/eefb62ef30.js" crossorigin="anonymous"></script>
+	
+	<head>
+			<link rel = "stylesheet" href = "src/style.css">
+	</head>
+<body>
+        <!-- template for tasks -->
+              <div class = "task" id = "example" style="display: none;">
+              <p class="task-title"> {title}</p>
+              <div class = "task-details">
+                <div class="task-info">
+                  <div class="avatar"></div>
+                    <p class="task-code">
+                      {tag}
+                    </p>
+                  </div>
+                  <div class="task-status">
+                    <div class="task-type">
+                      <i class="fa fa-bookmark"></i>
+                    </div>
+                    <div class="task-priority">
+                      <i class="fa fa-arrow-up"></i>
+                    </div>
+                  </div>
+              </div>
+          </div
+          >
+	<div class="page">
+    <!-- nav bar -->
+		<aside> 
+			<div class = "actions">
+				<button class= "icon-bar" id="searchTask">
+					<i class="fa fa-search fa-2x"></i>
+				</button>				
+				<button class = "icon-bar" id="addTask">
+					<i class="fa fa-plus fa-2x"></i>
+				</button>
+        <button class = "icon-bar" id ="removeTask">
+          <i class="fa fa-minus fa-2x"></i>
+        </button>
+			</div>
+			<div class="avatar"></div>
+		</aside>
+		<main>
+			<h1>Jira Board</h1>
+			<div class = "board">
+				<section>
+					<h5 class="section-title">Backlog <span>4</span></h5>
+					<div class="tasks"></div> 
+				</section>
+				<section>
+					<h5 class="section-title">
+						Selected for development <span>4</span>
+					</h5>
+					<div class="tasks"></div>
+				</section>
+				<section>
+            <h5 class="section-title">In progress <span>4</span></h5>
+            <div class="tasks"></div>
+          </section>
+
+          <section>
+            <h5 class="section-title">Done <span>4</span></h5>
+            <div class="tasks"></div>
+          </section>
+			</div>
+		</main>
+	</div>
+	<script type="module" src="src/index.js"></script>
+</body>
+</html>
