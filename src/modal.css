@@ -1,0 +1,106 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 30px;
+  z-index: 10;
+  background-color: white;
+  width: 300px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  border-radius: 30px;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#addTaskForm
+{
+  justify-content: center;
+}
+#addTaskForm label{
+  font-weight: 50%;
+  background: black;
+  color:white;
+}
+#addTaskForm input{
+  border-radius: 50px;
+  cursor: pointer;
+}
+#addTaskForm input:hover{
+  background:green;
+}
+#addTaskForm select{
+  border-radius: 50px;
+}
+#addTaskForm button{
+  background:green;
+  text-decoration-color: black
+  outline:none;
+  border-radius: 100px; 
+}
+.modal-header button{
+  justify-content: flex-end;
+}
+.modal-header {
+  justify-content: space-around;
+  background: red;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.modal active{
+  justify-content: center;
+}
