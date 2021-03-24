@@ -1,4 +1,3 @@
-
 *
 {
 	margin:0;
@@ -97,13 +96,32 @@ section{
 	overflow: auto;
 	
 }
-h5.section-title{
+.section-title{
+	display: flex;
+	justify-content: space-around;
+
+
+}
+.add-button{
+	display: flex;
+	/*align-self: flex-end;*/
+	border:0 none;
+	background:transparent;
+	color : green;
 	padding: 1em;
-	text-transform: uppercase;
-	font-weight: 500;
+	outline: none;
+	cursor: pointer;
+
+}
+.add-button:hover{
+	color:red;
+}
+.section-title h5{
+	display: flex;
+	padding: 1em;
+	font-weight: 1000;
 	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+
 }
 .tasks{
 	overflow: visible;
@@ -126,10 +144,6 @@ h5.section-title{
 }
 .task:hover{
 	background-color: #ebecf0;
-}
-
-.task-title {
-  margin-bottom: 1.5em;
 }
 
 .task-details {
@@ -172,6 +186,15 @@ h5.section-title{
 .task-status .task-priority {
   color: #e9494a;
 }
+.taskremove button {
+	background: transparent;
+	border: 0 none;
+	color :black;
+	outline:none;
+	cursor: pointer;
+
+}
+
 .fade-in {
   animation: fadeIn ease 2s;
   -webkit-animation: fadeIn ease 2s;

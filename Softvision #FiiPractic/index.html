@@ -8,7 +8,10 @@
 <body>
         <!-- template for tasks -->
               <div class = "task" id = "example" style="display: none;">
+              <div class ="start-task">
               <p class="task-title"> {title}</p>
+              
+			</div>
               <div class = "task-details">
                 <div class="task-info">
                   <div class="avatar"></div>
@@ -17,6 +20,11 @@
                     </p>
                   </div>
                   <div class="task-status">
+                  	<div class="taskremove">
+                		<button id="removeTask">
+					<i class="fa fa-minus"></i>
+						</button>
+					</div>
                     <div class="task-type">
                       <i class="fa fa-bookmark"></i>
                     </div>
@@ -45,24 +53,35 @@
 		</aside>
 		<main>
 			<h1>Jira Board</h1>
-			<div class = "board">
+			<div class = "board" id ="Board">
 				<section>
-					<h5 class="section-title">Backlog <span>4</span></h5>
+		
+					<div class = "section-title">
+						<h5>Backlog <span>4</span></h5>
+					<button class ="add-button" id="add_backlog"><i class="fa fa-plus fa-2x"></i></button>
+					</div>
 					<div class="tasks"></div> 
 				</section>
 				<section>
-					<h5 class="section-title">
-						Selected for development <span>4</span>
-					</h5>
+						<div class = "section-title">
+						<h5>Selected for development 3</h5>
+					<button class ="add-button" id = "add_dev"><i class="fa fa-plus fa-2x"></i></button>
+					</div>
 					<div class="tasks"></div>
 				</section>
 				<section>
-            <h5 class="section-title">In progress <span>4</span></h5>
+           	<div class = "section-title">
+						<h5>In Progress <span>4</span></h5>
+					<button class ="add-button" id= "add_progress"><i class="fa fa-plus fa-2x"></i></button>
+					</div>
             <div class="tasks"></div>
           </section>
 
           <section>
-            <h5 class="section-title">Done <span>4</span></h5>
+            	<div class = "section-title">
+						<h5>Done <span>4</span></h5>
+					<button class ="add-button" id = "add_done"><i class="fa fa-plus fa-2x"></i></button>
+					</div>
             <div class="tasks"></div>
           </section>
 			</div>
