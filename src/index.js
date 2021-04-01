@@ -2,27 +2,43 @@
 const sectionButton = document.getElementById("Board");
 const modalGlobal = document.getElementById("modal")
 //butoanele de pe section "+", "-"
+const profileButton = document.getElementById("profile")
 var task_count = 0;
 const backlog= document.querySelectorAll(".board section");
-
+var task_vector = []
 const addTaskButton = document.getElementById("addTask");
 console.log(backlog);
 document.querySelectorAll("section").forEach((div) =>{
   div.style.cssText ="background-color :#ff0000: border: 1px solid #000";
 });
+profileButton.addEventListener("click", event =>{
+  window.open("../../profile.html", "_self")
+})
 // create the new task
 function compileTaskTemplate(title, tag) {
   let newDiv = document.createElement("div");
   newDiv = document.getElementById("example");
   const compileTemplate = newDiv.outerHTML;
   const div = document.createElement("div");
+  const trueTag = getTag(tag)
   div.innerHTML = compileTemplate
   .replace("{title}", title)
-  .replace("{tag}",tag);
+  .replace("{tag}",trueTag);
 
  return div.firstElementChild;
 }
-
+function getTag(tag)
+{
+  if(tag === 'low')
+    return '<i class="far fa-bell"></i>'
+  else
+    if(tag ==='medium')
+      return '<i class="far fa-times-square"></i>'
+    if(tag ==='high')
+      return '<i class="fas fa-times-circle"></i>'
+    else
+      return '<i class="fas fa-exclamation"></i>'
+}
 // handle click on section button
 sectionButton.addEventListener("click",event =>{
   backlog.forEach(section =>{
@@ -57,8 +73,12 @@ function removeTask(task_id, section)
   if(task_id === undefined)
     return;
   // console.log(section);
-  task_count--;
+   task_vector = task_vector.filter(item => 
+    // console.log(item.template.id, task_id)
+    item.template.id !== task_id
+   )
     task.className += " fade-out";
+   console.log(task_vector)
   setTimeout(() => {
 
     section.lastElementChild.removeChild(task);
@@ -80,13 +100,28 @@ function addTask(title, tag, section)
 {
 
   const template = compileTaskTemplate(title, tag);
-   template.id += `${task_count}`; 
-  task_count++;
+   template.id += `${task_vector.length}`; 
   template.style.display = "block"
   template.className +=" fade-in"
   backlog[section].lastElementChild.appendChild(template)
-   
+  console.log(backlog[section])
+  task_vector.push({template, section, tag,title})
+  // add_drag(template)
+  draggables = document.querySelectorAll('.task')
+  draggables.forEach(draggable =>{
+  // console.log(draggable)
+  template.addEventListener('dragstart', () =>{    
+    template.classList.add('dragging')
+    // console.log(draggable)
+  })
+  draggable.addEventListener('dragend', () =>{
+  draggable.classList.remove('dragging')
+})
+
+})
 }
+var draggables = document.querySelectorAll('.task')
+
 
 addTaskButton.addEventListener("click", rotateFunction);
 
@@ -123,6 +158,7 @@ function closeModal(modal){
   if(modal == null) return
   modal.classList.remove('active')
   overlay.classList.remove('active')
+  console.log(modal)
   modal.removeChild(modal.lastElementChild)
 }
 function showForm()
@@ -144,10 +180,10 @@ function showForm()
     // console.log(section)
     // validate data
     addTask(title.value, tag.value, section.value)
-    setTimeout(()=>{
+    
       
         closeModal(modalGlobal)
-    }, 500)
+    
   })
 }
 function addForm()
@@ -181,6 +217,30 @@ function compileToNode(domString) {
   div.innerHTML = domString;
   return div.firstElementChild;
 }
+function initTasks(){
+  let cookie = document.cookie;
+  let string = cookie.split(";")
+  let name = string[2]
+  let start = 6
+  let trueName = ''
+  while(name.charAt(start) !== ' ')
+  {
+    trueName += `${name.charAt(start)}`
+    start +=1
+  }
+  console.log(trueName)
+  storage = window.localStorage
+  let data = JSON.parse(storage.getItem(trueName))
+  console.log(data)
+  start = 1;
+ 
+  while(start != data.length)
+  {
+    addTask(data[start][0], data[start][1], parseInt(data[start][2], 10))
+    start +=1
+  }
+}
+initTasks()
 
 // function addTask(backlog) {
 //   console.log(backlog);

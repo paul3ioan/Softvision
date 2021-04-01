@@ -44,7 +44,7 @@ aside button{
 	background-image: url("../assets/avatar.png");
 	border-radius: 100%;
 	height: 3em;
-
+	cursor: pointer;
 }
 .icon-bar {
   cursor: pointer;

@@ -8,7 +8,7 @@
 	</head>
 <body>
         <!-- template for tasks -->
-              <div class = "task" id = "example" style="display: none;">
+              <div class = "task" id = "example" style="display: none;" draggable ="true">
               <div class ="start-task">
               <p class="task-title"> {title}</p>
               
@@ -46,14 +46,23 @@
 				<button data-modal-target="#modal" class = "icon-bar" id="addTask">
 					<i class="fa fa-plus fa-2x"></i>
 				</button>
+				<button class = "icon-bar" id = "filters">
+					<i class = "fa fa-filter fa-2x"></i>
+				</button>
         <!-- <button class = "icon-bar" id ="removeTask">
           <i class="fa fa-minus fa-2x"></i>
         </button>
 		 -->	</div>
-			<div class="avatar"></div>
+			<button class="avatar" id = "profile"></button>
 		</aside>
 		<main>
 			<h1>Jira Board</h1>
+			<div class = "modal" id = "modalFilter">
+				<div class = "modal-header">
+					<div class = "title"> Filter tasks</div>
+				</div>
+					<div class = "modal-body-filter"><div></div></div>
+				</div>
 			<div class= "modal" id = "modal">
 				<div class="modal-header">
 					<div class="title">Add task</div>
@@ -96,7 +105,12 @@
 			</div>
 		</main>
 	</div>
-	<script type="module" src="src/index.js"></script>
+	<!-- <script type="module" src="src/index.js"></script>
+	<script type="module" src="src/filter.js"></script> -->
+	<script type= "text/javascript" src="src/index.js"></script>
+	<script  type= "text/javascript" src="src/filter.js"></script>
+	<script  type= "text/javascript" src="src/search.js"></script>
+	<script  type= "text/javascript" src="src/drag.js"></script>
 	<!-- <script type="module" src = "src/modal.js"></script> -->
 </body>
 </html>

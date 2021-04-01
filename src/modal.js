@@ -6,6 +6,7 @@ openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
     openModal(modal)
+
   })
 })
 
@@ -24,6 +25,7 @@ closeModalButtons.forEach(button => {
 })
 
 function openModal(modal) {
+  console.log("works!")
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
