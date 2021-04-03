@@ -220,27 +220,34 @@ function compileToNode(domString) {
 function initTasks(){
   let cookie = document.cookie;
   let string = cookie.split(";")
-  let name = string[2]
-  let start = 6
+  console.log(string)
+  let name = string[0]
+  let start = 5
   let trueName = ''
+  console.log(name)
   while(name.charAt(start) !== ' ')
   {
     trueName += `${name.charAt(start)}`
     start +=1
   }
+  // truename == numele utilizatorului
   console.log(trueName)
   storage = window.localStorage
   let data = JSON.parse(storage.getItem(trueName))
   console.log(data)
-  start = 1;
- 
+  start = 0;
+  // data[1]... coloana de taskuri 
+  // in start am numarul taskului
+  // in ultimul camp am 0 - titlul; 1 - tagul; 2 - numarul section 
+  // console.log(data[1][start][0], data[1][start][1], parseInt(data[1][start][2],10))
   while(start != data.length)
   {
-    addTask(data[start][0], data[start][1], parseInt(data[start][2], 10))
+    addTask(data[1][start][0], data[1][start][1], parseInt(data[1][start][2], 10))
     start +=1
   }
 }
 initTasks()
+// init task introduce din localstorage taskurile pentru utilizatorul respectiv, daca exista
 
 // function addTask(backlog) {
 //   console.log(backlog);

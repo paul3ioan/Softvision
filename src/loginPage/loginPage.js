@@ -9,11 +9,11 @@ function addStorage()
 	storage.setItem('paul', 'paula')
 	console.log(localStorage)
 }
-var info = ["admina"]
+var info = ["admin", [[ "title", "high", "0"], [ "uite asa1", "low", '3']]]
 // storage.removeItem('admin')
 // storage.setItem('admin', JSON.stringify(info))
 var info2 = ["adad"]
-storage.setItem('admina', JSON.stringify(info))
+storage.setItem('paul', JSON.stringify(info))
 // addStorage()
 submitButton.addEventListener('click' ,event=>{
 	event.preventDefault()
@@ -22,6 +22,7 @@ submitButton.addEventListener('click' ,event=>{
 	console.log(username)
 	let info = storage.getItem(username)
 	let data = JSON.parse(info)
+	console.log(data)
 	if(data === null)
 	{
 
